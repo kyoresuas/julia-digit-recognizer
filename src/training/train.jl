@@ -3,7 +3,7 @@ using MLUtils: DataLoader
 
 function train_model!(model, train_X, train_y, training_config)
     loss(x, y) = Flux.crossentropy(model(x), y)
-    opt = Flux.Descent(training_config["learning_rate"])
+    opt = Flux.Adam(training_config["learning_rate"])
     batches = DataLoader((train_X, train_y), batchsize=training_config["batch_size"], shuffle=true)
 
     for epoch in 1:training_config["epochs"]
