@@ -13,6 +13,6 @@ train_X, train_y, test_X, test_y = load_data()
 
 model = build_model()
 
-train!(model, train_X, train_y, config)
+train_model!(model, train_X, train_y, config)
 
 println("Точность на тестовом наборе: ", accuracy(model, test_X, test_y))
