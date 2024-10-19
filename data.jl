@@ -1,8 +1,12 @@
 using MLDatasets
 
 function load_data()
-    train = MNIST(split=:train)[:]
-    test = MNIST(split=:test)[:]
+    data_dir = joinpath(pwd(), "datasets")
+
+    mkpath(data_dir)
+
+    train = MNIST(split=:train, dir=data_dir)[:]
+    test = MNIST(split=:test, dir=data_dir)[:]
 
     train_X = Flux.flatten(train.data) ./ 255.0
     train_y = train.targets
