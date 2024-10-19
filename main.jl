@@ -9,10 +9,18 @@ config = Dict(
     :learning_rate => 0.001
 )
 
+# Загружаем данные
 train_X, train_y, test_X, test_y = load_data()
 
+# Создаем модель
 model = build_model()
 
+# Обучаем модель
 train_model!(model, train_X, train_y, config)
 
+# Проверяем точность
 println("Точность на тестовом наборе: ", accuracy(model, test_X, test_y))
+
+# Сохраняем модель
+using BSON: @save
+@save "model.bson" model
