@@ -1,2 +1,16 @@
 # Datasets folder
-/datasets
+datasets/
+
+# Model outputs
+output/model.bson
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+*.png
+*.jpg
+
+# Manifest.toml
+Manifest.toml
